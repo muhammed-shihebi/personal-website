@@ -1,0 +1,244 @@
+/* =========================================================== Global */
+
+.background-image {
+	background: url("images/site-background.png") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+}
+
+body {
+	text-align: center;
+	font-family: 'Crimson Text', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p {
+	font-size: 1.25rem;
+}
+
+/* brawn background for each brawn section  */
+
+.brawn-section {
+	background-color: #DFCFBA;
+}
+
+
+/* gray background for each gray section  */
+.gray-section {
+	background-color: #F5F5F5;
+}
+
+.btn-style {
+	border-radius: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 0.9rem;
+	border: 2px solid;
+}
+
+
+/* top margin for each section */
+.section-margin {
+	margin-top: 4.5rem;
+}
+
+.italic-style {
+	font-family: 'Crimson Text', serif;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 1.7rem;
+}
+
+.short-hr {
+	margin: 10px 0 15px;
+	border-style: solid none none;
+	border-width: 2px;
+	border-color: black;
+	width: 120px;
+}
+
+/* this will change the padding of the headers in the each section */
+.header-padding {
+	padding-top: 2.7rem;
+}
+
+/* =========================================================== Title Section */
+
+
+/* Way to make a fixed header image */
+.masthead {
+	/*vh: Relative to 1% of the height of the viewport**/
+	height: 40vh;
+	background-image: url('images/title-background.png');
+	/* 	Resize the background image to cover the entire container, even if it has to stretch thest image or cut a little bit off one of the edges */
+	background-size: cover;
+	/* this will prevent the page from eating the header if the screen is small */
+	min-height: 300px;
+	max-height: 600px;
+	/* the position of the background image from the container. center means in height and width */
+	background-position: 60% 40%;
+	/* stop repeating the image to fill the whole page */
+	background-repeat: no-repeat;
+}
+
+.h1-my-name {
+	font-size: 3rem;
+	margin-bottom: 0;
+	padding-top: 1rem;
+	font-weight: normal;
+}
+
+.masthead p {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 0.85rem;
+}
+
+.title-icon {
+	width: 5rem;
+}
+
+/* =========================================================== Navbar  */
+
+.nav-item {
+	padding: 0 4vw;
+	font-size: 1.25rem;
+}
+
+.navbar-custom {
+	background-color: #27223E;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+	color: white;
+	font-family: 'Crimson Text', serif;
+}
+
+/* =========================================================== Intro */
+
+.personal-image {
+	width: 20rem;
+}
+
+.column-left {
+	text-align: right;
+	margin-top: 4rem;
+	padding-right: 3rem;
+}
+
+.column-right {
+	text-align: left;
+	margin-top: 4rem;
+}
+
+@media screen and (max-width: 1000px) {
+	.column-left {
+		text-align: center;
+		padding-right: 0;
+	}
+	.column-right {
+		text-align: center;
+	}
+	hr {
+		margin: 10px auto 15px;
+	}
+	.personal-image {
+		width: 10rem;
+	}
+}
+
+/* =========================================================== Projects Section */
+
+.project-box p {
+	padding-bottom: 8%;
+	color: white;
+}
+
+.project-box {
+	padding: 3rem 4% 2rem;
+}
+
+.projects-container {
+	padding: 3% 23% 0;
+}
+
+/* =========================================================== Blog */
+
+
+/* make the hr in the header align center */
+#blog hr {
+	margin: auto;
+}
+
+.card-deck {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	border-radius: 0;
+	padding-bottom: 4rem;
+	text-align: left;
+}
+
+.card-img-top {
+	border-radius: 0;
+}
+
+#blog .container {
+	padding: 4% 10% 0;
+}
+
+#blog a:hover {
+	text-decoration: none;
+	color: #b8b894;
+}
+#blog a{
+	text-decoration: none;
+	color: gray;
+	font-size: 1.1rem;
+}
+
+
+/* delete the tob border of the card */
+#blog .card-footer{
+	border-top: none;
+	background-color: transparent;
+}
+
+/* style hr in the card */
+.card-footer hr{
+	padding-bottom: 1rem;
+}
+
+/* delete the space under the title */
+#blog .card-body{
+	padding-bottom: 0;
+}
+
+/* =========================================================== Footer */
+
+#footer p{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0;
+	font-size: 1rem;
+	color: #8f8f8f;
+}
+
+.footer-container{
+	background-color: white;
+    padding: 1% 0;
+}
+
+.contact-icon{
+	margin-left: 0.5rem;
+	font-size: 1.5rem;
+}
+
+.contact-icon:hover{
+	color: gray;
+}
+
+/* delete the blue color in the icons */
+#footer a{
+	color: black;
+}
