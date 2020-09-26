@@ -1,0 +1,24 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "This is my personal website, which is completely hand-coded without using CMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nour0700/handcoded-personal-website.git"
+  },
+  "author": "Muhammed Nur Sehebi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nour0700/handcoded-personal-website/issues"
+  },
+  "homepage": "https://github.com/Nour0700/handcoded-personal-website#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
