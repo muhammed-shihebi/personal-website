@@ -18,15 +18,17 @@ app.get("/about-me", function(req, res){
 	res.render("about-me")
 });
 app.get("/projects", function(req, res){
-	res.render("projects")
+	res.render("cards")
 });
 app.get("/contact-me", function(req, res){
 	res.render("contact-me")
 });
 app.get("/blog", function(req, res){
-	res.render("blog")
+	res.render("cards")
 });
-
 app.get("/cv", function(req, res){
 	res.render("cv")
-})
+}); 
+app.get("/post", function(req, res){
+	res.render("post")
+}); 
