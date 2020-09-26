@@ -70,6 +70,18 @@ p {
 	padding-top: 2.7rem;
 }
 
+.white-hr{
+	margin: 10px 0 15px;
+	border-style: solid none none;
+	border-width: 2px;
+	border-color: white;
+	width: 120px;
+}
+
+.serif{
+	font-family: 'Crimson Text', serif;
+}
+
 /* =========================================================== Title Section */
 
 
@@ -145,8 +157,10 @@ p {
 	}
 	.column-right {
 		text-align: center;
+		padding-left: 0;
 	}
-	hr {
+	.short-hr {
+		text-align: center;
 		margin: 10px auto 15px;
 	}
 	.personal-image {
@@ -253,11 +267,54 @@ p {
 /* ========================== About Me =======================  */
 /* ===========================================================  */
 
+#about-me-intro{
+	padding: 0 20%;
+	text-align: left;
+}
 
 .about-computer-image{
 	margin-top: 4.2rem;
-	width: 30rem;	
+	width: 100%;	
 }
+
+.edu-container{
+	padding: 0 20%;
+	text-align: left;
+}
+
+.edu-box {
+	padding: 2% 0;
+}
+
+#edu h5{
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+.edu-p{
+	margin-bottom: 0.5rem;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 0.9rem;
+	font-weight: bolder;
+}
+
+#edu .column-left {
+	padding-right: 0;
+}
+
+.edu-hr{
+	margin-bottom: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /* ===========================================================  */
@@ -271,3 +328,5 @@ p {
 .download-cv-button{
 	margin-top: 2.2rem !important;
 }
+
+
