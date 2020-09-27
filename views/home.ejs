@@ -27,42 +27,20 @@
 	<h2 class="header-padding">Projects</h2>
 	<div class="home-projects-container container-fluid">
 		<div class="row">
+			<% projects.forEach(project => { %>
 			<div class="project-box col-lg-4 col-md-6">
 				<div class="row">
 					<div class="col-lg-12">
-						<h3 class="italic-style">Hand-coded Personal Website</h3>
+						<h3 class="italic-style"><%= project.title %> </h3>
 						<p>Sep 2020</p>
 					</div>
 					<div class="col-lg-12">
-						<button type="button italic-style"
-							class="btn btn-outline-dark px-4 py-2 mt-2 btn-style">DETAILS</button>
+						<button type="button italic-style" class="btn btn-outline-dark px-4 py-2 mt-2 btn-style"
+							onclick=" window.location.href = '/cards/<%= project.id %>';">DETAILS</button>
 					</div>
 				</div>
 			</div>
-			<div class="project-box col-lg-4 col-md-6">
-				<div class="row">
-					<div class="col-lg-12">
-						<h3 class="italic-style">Android App Cook Reminder</h3>
-						<p>Aug 2020</p>
-					</div>
-					<div class="col-lg-12">
-						<button type="button italic-style"
-							class="btn btn-outline-dark px-4 py-2 mt-2 btn-style">DETAILS</button>
-					</div>
-				</div>
-			</div>
-			<div class="project-box col-lg-4">
-				<div class="row">
-					<div class="col-lg-12">
-						<h3 class="italic-style">Desktop App Report Writer</h3>
-						<p>Jan 2020 - Jul 2020</p>
-					</div>
-					<div class="col-lg-12">
-						<button type="button italic-style"
-							class="btn btn-outline-dark px-4 py-2 mt-2 btn-style">DETAILS</button>
-					</div>
-				</div>
-			</div>
+			<% }); %>
 		</div>
 	</div>
 </section>
@@ -75,41 +53,20 @@
 	<div class="container">
 
 		<div class="card-deck">
+			<% posts.forEach(post => { %>
 			<div class="card">
-				<a href="/post"><img class="card-img-top" src="images/blog-images/place-holder (1).jpg"
+				<a href="/cards/<%= post.id %>"><img class="card-img-top" src="<%= post.imageUrl %>"
 						alt="Card image cap">
-					</a>
+				</a>
 				<div class="card-body">
-					<h5 class="card-title"><a href="/post" class="deck-title-link">How to be a good programmer</a></h5>
+					<h5 class="card-title"><a href="/cards/<%= post.id %>" class="deck-title-link"><%= post.title %></a></h5>
 				</div>
 				<div class="card-footer">
 					<hr>
 					<small class="text-muted">Last updated 3 mins ago</small>
 				</div>
 			</div>
-			<div class="card">
-				<a href="/post"><img class="card-img-top" src="images/blog-images/place-holder (2).jpg"
-						alt="Card image cap"></a>
-
-				<div class="card-body">
-					<h5 class="card-title"><a href="/post" class="deck-title-link">Study tips and tricks</a></h5>
-				</div>
-				<div class="card-footer">
-					<hr>
-					<small class="text-muted">Last updated 3 mins ago</small>
-				</div>
-			</div>
-			<div class="card">
-				<a href="/post" class="deck-title-link"><img class="card-img-top"
-						src="images/blog-images/place-holder (3).jpg" alt="Card image cap"></a>
-				<div class="card-body">
-					<h5 class="card-title"><a href="/post" class="deck-title-link">How to read more</a></h5>
-				</div>
-				<div class="card-footer">
-					<hr>
-					<small class="text-muted">Last updated 3 mins ago</small>
-				</div>
-			</div>
+			<% }); %>
 		</div>
 	</div>
 </section>

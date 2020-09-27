@@ -25,24 +25,26 @@
 				<p><a href="https://github.com/Nour0700">Nour0700</a> </p>
 			</div>
 			<div class="col-lg-6 column-right">
-				<form action=mailto:muhammednurpro@gmail.com class="needs-validation">
+				<form action="/contact-me" method="post" class="needs-validation" novalidate>
 					<div class="form-group">
-						<input type="text" class="form-control" id="contact-me-form-name" aria-describedby="emailHelp"
-							placeholder="Name" required>
+						<input name="name" type="text" class="form-control" id="contact-me-form-name" aria-describedby="emailHelp"
+							placeholder="Your Name" required>
 					</div>
 					<div class="form-group">
-						<input type="email" class="form-control" id="contact-me-form-email" placeholder="Email" required>
+						<input name="email" type="email" class="form-control" id="contact-me-form-email" placeholder="Your Email"
+							required>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" id="contact-me-form-email" placeholder="Subject" required>
+						<input name="subject" type="text" class="form-control" id="contact-me-form-email" placeholder="The Subject"
+							required>
 					</div>
 					<div class="form-group">
-						<textarea class="form-control" id="contact-me-form-message" rows="3"
-							placeholder="Message"></textarea >
+						<textarea name="message" class="form-control" id="contact-me-form-message" rows="3"
+							placeholder="The Message" required></textarea>
 					</div>
 					<div class="form-group text-right">
-						<button type="button italic-style"
-								class="btn btn-light btn-sm px-5 mt-2 btn-style">Send</button>
+						<button type="submit" 
+							class="btn btn-light btn-sm px-5 mt-2 btn-style">Send</button>
 					</div>
 
 				</form>

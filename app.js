@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const contentful = require('contentful');
 const richTextRender = require('@contentful/rich-text-html-renderer');
+const nodemailer = require("nodemailer"); 
+require('dotenv').config(); 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,9 +16,18 @@ app.listen(3000, function () { console.log("Server Started successfully"); });
 // =========================================================== 
 
 var client = contentful.createClient({
-	space: 'su42bjsoz92f',
-	accessToken: 'v5DXJtoxn3T2jeR4ez8br7PQGFDTNKHlIBbabMFOfY0'
+	space: process.env.SPACE,
+	accessToken: process.env.ACCESSTOKEN
 });
+
+let transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		user: process.env.EMAIL, 
+		pass: process.env.PASSWORD
+	}
+}); 
+
 
 // ===========================================================
 
@@ -56,10 +67,10 @@ app.get("/", function (req, res) {
 			});
 			// console.log(projects);
 			// console.log(posts);
-			  res.render("home", {
-				  project: projects, 
-				  posts: posts
-			  }); 
+			res.render("home", {
+				projects: projects,
+				posts: posts
+			});
 		});
 
 	});
@@ -130,3 +141,25 @@ app.get("/cards/:cardId", function (req, res) {
 		})
 	}).catch(error => console.log(error));
 }); 
+
+
+// =========================================================== Posts 
+
+app.post("/contact-me", function(req, res){
+	let mailOptions = {
+		from : process.env.EMAIL, 
+		to: "muhammednurpro@gmail.com", 
+		subject: req.body.subject, 
+		text: "From: " + req.body.name +  "\nEmail: " +req.body.email + "\n\n" + req.body.message
+	}; 
+
+	transporter.sendMail(mailOptions, function(err, data){
+		if (err){
+			console.log(err); 
+		}else{
+			console.log("Email was sent successfully");
+			res.redirect('contact-me')
+		}
+	});
+
+});
