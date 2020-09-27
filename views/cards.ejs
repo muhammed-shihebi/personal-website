@@ -2,63 +2,27 @@
 
 <section id="cards-section">
 	<div class="container">
-		<h3>MY BLOG</h3>
+		<h3>MY <%= type %></h3>
 		<hr class="short-hr">
 		<div class="cards-container">
 			<div class="row">
+				<% cards.forEach(function(card){ %>
 				<div class="col-lg-6 low-card-padding">
 					<div class="card">
-						<a href="/post" class="deck-title-link"><img class="card-img-top"
-								src="images/blog-images/place-holder (1).jpg" alt="Card image cap"></a>
+						<a href="/cards/<%= card.id %>" class="deck-title-link"><img class="card-img-top" src="<%= card.imageUrl %>"
+								alt="Card image cap"></a>
+
 						<div class="card-body">
-							<h5 class="card-title"><a href="/post" class="deck-title-link">Card title</a></h5>
+							<h5 class="card-title"><a href="/cards/<%= card.id %>" class="deck-title-link"><%= card.title %></a></h5>
 						</div>
 						<div class="card-footer">
 							<hr>
 							<small class="text-muted">Last updated 3 mins ago</small>
 						</div>
+
 					</div>
 				</div>
-				<div class="col-lg-6 low-card-padding">
-					<div class="card">
-						<a href="/post" class="deck-title-link"><img class="card-img-top"
-							src="images/blog-images/place-holder (1).jpg" alt="Card image cap"></a>
-						<div class="card-body">
-							<h5 class="card-title"><a href="/post" class="deck-title-link">Card title</a></h5>
-							</p>
-						</div>
-						<div class="card-footer">
-							<hr>
-							<small class="text-muted">Last updated 3 mins ago</small>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 low-card-padding">
-					<div class="card">
-						<a href="/post" class="deck-title-link"><img class="card-img-top"
-							src="images/blog-images/place-holder (1).jpg" alt="Card image cap"></a>
-						<div class="card-body">
-							<h5 class="card-title"><a href="/post" class="deck-title-link">Card title</a></h5>
-						</div>
-						<div class="card-footer">
-							<hr>
-							<small class="text-muted">Last updated 3 mins ago</small>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 low-card-padding">
-					<div class="card">
-						<a href="/post" class="deck-title-link"><img class="card-img-top"
-							src="images/blog-images/place-holder (1).jpg" alt="Card image cap"></a>
-						<div class="card-body">
-							<h5 class="card-title"><a href="/post" class="deck-title-link">Card title</a></h5>
-						</div>
-						<div class="card-footer">
-							<hr>
-							<small class="text-muted">Last updated 3 mins ago</small>
-						</div>
-					</div>
-				</div>
+				<% }); %>
 			</div>
 		</div>
 	</div>

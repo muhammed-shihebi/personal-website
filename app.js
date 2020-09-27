@@ -18,45 +18,115 @@ var client = contentful.createClient({
 	accessToken: 'v5DXJtoxn3T2jeR4ez8br7PQGFDTNKHlIBbabMFOfY0'
 });
 
-let blog = [];
-
 // ===========================================================
 
 app.get("/", function (req, res) {
-	res.render("home")
+	let posts = []
+	let projects = []
+	client.getEntries({
+		content_type: 'project',
+		limit: 3,
+		order: "sys.createdAt"
+	}).then(function (entries) {
+		entries.items.forEach(function (entry) {
+			if (entry.fields) {
+				var project = {
+					title: entry.fields.title,
+					imageUrl: entry.fields.titleImage.fields.file.url,
+					id: entry.sys.id
+				};
+				projects.push(project);
+			}
+		})
+
+		client.getEntries({
+			content_type: 'post',
+			limit: 3,
+			order: "sys.createdAt"
+		}).then(function (entries) {
+			entries.items.forEach(function (entry) {
+				if (entry.fields) {
+					var post = {
+						title: entry.fields.title,
+						imageUrl: entry.fields.titleImage.fields.file.url,
+						id: entry.sys.id
+					};
+					posts.push(post);
+				}
+			});
+			// console.log(projects);
+			// console.log(posts);
+			  res.render("home", {
+				  project: projects, 
+				  posts: posts
+			  }); 
+		});
+
+	});
 });
 app.get("/about-me", function (req, res) {
 	res.render("about-me")
 });
 app.get("/projects", function (req, res) {
-	res.render("cards")
+	let projects = [];
+	client.getEntries({ content_type: 'project' }).then(function (entries) {
+		entries.items.forEach(function (entry) {
+			console.log(entry.sys.id);
+			if (entry.fields) {
+				var project = {
+					title: entry.fields.title,
+					imageUrl: entry.fields.titleImage.fields.file.url,
+					id: entry.sys.id
+				};
+				projects.push(project);
+			}
+		});
+		res.render('cards', {
+			cards: projects,
+			type: "PROJECTS"
+		})
+	});
 });
 app.get("/contact-me", function (req, res) {
 	res.render("contact-me")
 });
 app.get("/blog", function (req, res) {
-
-	blog = []
+	let posts = []
 	client.getEntries({ content_type: 'post' }).then(function (entries) {
 		entries.items.forEach(function (entry) {
+			console.log(entry.sys.id);
 			if (entry.fields) {
-				const rawRichTextField = entry.fields.content;
-				const htmlContent = richTextRender.documentToHtmlString(rawRichTextField);
 				var post = {
 					title: entry.fields.title,
-					imageUrl: entry.fields.postImage.fields.file.url,
-					content: htmlContent
+					imageUrl: entry.fields.titleImage.fields.file.url,
+					id: entry.sys.id
 				};
-				blog.push(post);
+				posts.push(post);
 			}
 		});
-		console.log(blog);
+		res.render('cards', {
+			cards: posts,
+			type: "BLOG"
+		})
 	});
-	res.render("cards")
 });
 app.get("/cv", function (req, res) {
 	res.render("cv")
 });
-app.get("/post", function (req, res) {
-	res.render("post")
+
+
+app.get("/cards/:cardId", function (req, res) {
+	var outerEntry;
+	console.log(req.params.cardId);
+	client.getEntry(req.params.cardId).then(function (entry) {
+		outerEntry = entry
+		const rawRichTextField = entry.fields.content;
+		return richTextRender.documentToHtmlString(rawRichTextField);
+	}).then(renderedHtml => {
+		res.render("card", {
+			title: outerEntry.fields.title,
+			imageUrl: outerEntry.fields.titleImage.fields.file.url,
+			content: renderedHtml
+		})
+	}).catch(error => console.log(error));
 }); 
