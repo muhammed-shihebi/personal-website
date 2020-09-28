@@ -82,7 +82,6 @@ app.get("/projects", function (req, res) {
 	let projects = [];
 	client.getEntries({ content_type: 'project' }).then(function (entries) {
 		entries.items.forEach(function (entry) {
-			console.log(entry.sys.id);
 			if (entry.fields) {
 				var project = {
 					title: entry.fields.title,
@@ -105,7 +104,6 @@ app.get("/blog", function (req, res) {
 	let posts = []
 	client.getEntries({ content_type: 'post' }).then(function (entries) {
 		entries.items.forEach(function (entry) {
-			console.log(entry.sys.id);
 			if (entry.fields) {
 				var post = {
 					title: entry.fields.title,
@@ -128,7 +126,6 @@ app.get("/cv", function (req, res) {
 
 app.get("/cards/:cardId", function (req, res) {
 	var outerEntry;
-	console.log(req.params.cardId);
 	client.getEntry(req.params.cardId).then(function (entry) {
 		outerEntry = entry
 		const rawRichTextField = entry.fields.content;
@@ -158,7 +155,7 @@ app.post("/contact-me", function(req, res){
 			console.log(err); 
 		}else{
 			console.log("Email was sent successfully");
-			res.redirect('contact-me')
+			res.redirect("contact-me"); 
 		}
 	});
 
