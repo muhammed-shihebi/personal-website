@@ -32,7 +32,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h3 class="italic-style"><%= project.title %> </h3>
-						<p>Sep 2020</p>
+						<p><%= project.creationDate %></p>
 					</div>
 					<div class="col-lg-12">
 						<button type="button italic-style" class="btn btn-outline-dark px-4 py-2 mt-2 btn-style"
@@ -63,7 +63,7 @@
 				</div>
 				<div class="card-footer">
 					<hr>
-					<small class="text-muted">Last updated 3 mins ago</small>
+					<small class="text-muted">Last updated <%= post.updateDate %> </small>
 				</div>
 			</div>
 			<% }); %>

@@ -6,8 +6,8 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const contentful = require('contentful');
 const richTextRender = require('@contentful/rich-text-html-renderer');
-const nodemailer = require("nodemailer"); 
-require('dotenv').config(); 
+const nodemailer = require("nodemailer");
+require('dotenv').config();
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,11 +23,13 @@ var client = contentful.createClient({
 let transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
-		user: process.env.EMAIL, 
+		user: process.env.EMAIL,
 		pass: process.env.PASSWORD
 	}
-}); 
+});
 
+var projectDateOptions = {year: 'numeric', month: 'short'};
+var cardDateOptions = {year: 'numeric', month: 'short', day:'numeric'};
 
 // ===========================================================
 
@@ -41,10 +43,12 @@ app.get("/", function (req, res) {
 	}).then(function (entries) {
 		entries.items.forEach(function (entry) {
 			if (entry.fields) {
+				var date = new Date(entry.fields.projectCreationDate);
 				var project = {
 					title: entry.fields.title,
 					imageUrl: entry.fields.titleImage.fields.file.url,
-					id: entry.sys.id
+					id: entry.sys.id,
+					creationDate: date.toLocaleDateString("en-US", projectDateOptions)
 				};
 				projects.push(project);
 			}
@@ -53,14 +57,17 @@ app.get("/", function (req, res) {
 		client.getEntries({
 			content_type: 'post',
 			limit: 3,
-			order: "sys.createdAt"
+			order: "-sys.updatedAt"
 		}).then(function (entries) {
+			
 			entries.items.forEach(function (entry) {
 				if (entry.fields) {
+					var date = new Date(entry.sys.updatedAt);
 					var post = {
 						title: entry.fields.title,
 						imageUrl: entry.fields.titleImage.fields.file.url,
-						id: entry.sys.id
+						id: entry.sys.id,
+						updateDate: date.toLocaleDateString("en-US", postDateOptions)
 					};
 					posts.push(post);
 				}
@@ -82,11 +89,13 @@ app.get("/projects", function (req, res) {
 	let projects = [];
 	client.getEntries({ content_type: 'project' }).then(function (entries) {
 		entries.items.forEach(function (entry) {
+			var date = new Date(entry.sys.updatedAt);
 			if (entry.fields) {
 				var project = {
 					title: entry.fields.title,
 					imageUrl: entry.fields.titleImage.fields.file.url,
-					id: entry.sys.id
+					id: entry.sys.id, 
+					updateDate: date.toLocaleDateString("en-US", cardDateOptions)
 				};
 				projects.push(project);
 			}
@@ -105,10 +114,12 @@ app.get("/blog", function (req, res) {
 	client.getEntries({ content_type: 'post' }).then(function (entries) {
 		entries.items.forEach(function (entry) {
 			if (entry.fields) {
+				var date = new Date(entry.sys.updatedAt);
 				var post = {
 					title: entry.fields.title,
 					imageUrl: entry.fields.titleImage.fields.file.url,
-					id: entry.sys.id
+					id: entry.sys.id, 
+					updateDate: date.toLocaleDateString("en-US", cardDateOptions)
 				};
 				posts.push(post);
 			}
@@ -137,25 +148,25 @@ app.get("/cards/:cardId", function (req, res) {
 			content: renderedHtml
 		})
 	}).catch(error => console.log(error));
-}); 
+});
 
 
 // =========================================================== Posts 
 
-app.post("/contact-me", function(req, res){
+app.post("/contact-me", function (req, res) {
 	let mailOptions = {
-		from : process.env.EMAIL, 
-		to: "muhammednurpro@gmail.com", 
-		subject: req.body.subject, 
-		text: "From: " + req.body.name +  "\nEmail: " +req.body.email + "\n\n" + req.body.message
-	}; 
+		from: process.env.EMAIL,
+		to: "muhammednurpro@gmail.com",
+		subject: req.body.subject,
+		text: "From: " + req.body.name + "\nEmail: " + req.body.email + "\n\n" + req.body.message
+	};
 
-	transporter.sendMail(mailOptions, function(err, data){
-		if (err){
-			console.log(err); 
-		}else{
+	transporter.sendMail(mailOptions, function (err, data) {
+		if (err) {
+			console.log(err);
+		} else {
 			console.log("Email was sent successfully");
-			res.redirect("contact-me"); 
+			res.redirect("contact-me");
 		}
 	});
 
