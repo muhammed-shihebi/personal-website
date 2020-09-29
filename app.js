@@ -71,7 +71,7 @@ app.get("/", function (req, res) {
 						title: entry.fields.title,
 						imageUrl: entry.fields.titleImage.fields.file.url,
 						id: entry.sys.id,
-						updateDate: date.toLocaleDateString("en-US", postDateOptions)
+						updateDate: date.toLocaleDateString("en-US", cardDateOptions)
 					};
 					posts.push(post);
 				}
