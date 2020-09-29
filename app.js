@@ -11,7 +11,11 @@ require('dotenv').config();
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.listen(3000, function () { console.log("Server Started successfully"); });
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, function () { console.log("Server Started successfully"); });
 
 // =========================================================== 
 
