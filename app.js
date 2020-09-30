@@ -153,14 +153,18 @@ app.get("/cards/:cardId", function (req, res) {
 				title: outerEntry.fields.title,
 				imageUrl: outerEntry.fields.titleImage.fields.file.url,
 				content: renderedHtml,
-				creationDate: date.toLocaleDateString("en-US", cardDateOptions)
+				creationDate: date.toLocaleDateString("en-US", cardDateOptions), 
+				pageUrl: "https://www.sehebi.com/cards/" + req.params.cardId, 
+				pageIdentifier: req.params.cardId
 			}); 
 		}else{
 			res.render("card", {
 				title: outerEntry.fields.title,
 				imageUrl: outerEntry.fields.titleImage.fields.file.url,
 				content: renderedHtml, 
-				creationDate: ""
+				creationDate: "", 
+				pageUrl: "https://www.sehebi.com/cards/" + req.params.cardId, 
+				pageIdentifier: req.params.cardId
 			}); 
 		}
 
