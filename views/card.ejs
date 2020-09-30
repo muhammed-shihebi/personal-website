@@ -3,20 +3,20 @@
 <div class="container">
 	<div class="card border-0 shadow my-5 mx-auto">
 		<div class="card-body p-5">
+			<h1 ><%= title %></h1>
+			<span>
+				<% if(creationDate !== ""){%>
+				<p class="text-muted meta">Project publishing date: <%= creationDate %> </p>
+				<%  } %>
+			</span>
 			<div class="text-center">
 				<img class="card-img-top card-image" src="<%= imageUrl %>" alt="">
 			</div>
 			<div class="my-card-body">
-				<span>
-					<% if(creationDate !== ""){%>
-					<p class="text-muted">Project publishing date: <%= creationDate %> </p>
-					<%  } %>
 
-				</span>
-				<h1 class="font-weight-light"><%= title %></h1>
 				<p id="rich-text-body">
 					<script>
-						document.getElementById('rich-text-body').innerHTML = "<%- content %>"; 
+						document.getElementById('rich-text-body').innerHTML = '<%- content %>'; 
 					</script>
 				</p>
 			</div>
@@ -24,13 +24,12 @@
 			<hr>
 			<div id="disqus_thread"></div>
 			<script>
-		
 				/**
 				*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 				*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 				var disqus_config = function () {
-					this.page.url = pageUrl ;  
-					this.page.identifier = pageIdentifier;
+					this.page.url =" <%- pageUrl %> ";  
+					this.page.identifier = "<%- pageIdentifier %>" ;
 				};
 		
 				(function () {

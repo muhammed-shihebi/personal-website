@@ -148,6 +148,7 @@ app.get("/cards/:cardId", function (req, res) {
 	}).then(renderedHtml => {
 		const contentType = outerEntry.sys.contentType.sys.id
 		if(contentType === "project"){
+			console.log(renderedHtml);
 			var date = new Date(outerEntry.fields.projectCreationDate);
 			res.render("card", {
 				title: outerEntry.fields.title,
