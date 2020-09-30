@@ -4,6 +4,8 @@
 
 /* =========================================================== Global */
 
+html { visibility:hidden; }
+
 .background-image {
 	background: url("/images/site-background.png") no-repeat center center fixed;
 	-webkit-background-size: cover;
