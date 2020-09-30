@@ -250,7 +250,7 @@ a.deck-title-link:hover{
 	margin: auto;
 }
 
-#home-blog .container-fluid {
+#home-blog .container {
 	padding: 4% 5% 0;
 }
 
@@ -366,7 +366,7 @@ a.deck-title-link:hover{
 
 .card-img-top {
 	width: 100%;
-    height: 50vh;
+    height: 30vh;
     object-fit: cover;
 }
 /* ===========================================================  */

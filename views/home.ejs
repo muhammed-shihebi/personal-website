@@ -9,12 +9,14 @@
 			<div class="col-lg-5 column-right">
 				<h3>MUHAMMED NUR ŞEHEBİ</h3>
 				<hr class="short-hr">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-					labore et dolore
-					magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-					ex ea. a story and let your users know a little more about you.
+				<p>
+					I am an ambitious young professional who loves science and technology. My passion for learning grant
+					me many experiences in building desktop, mobile and web applications, utilizing algorithms,
+					designing databases and more. I am also interested in artificial intelligence and machine learning
+					and would like to develop applications, products and tools that take advantage of those methods.
 				</p>
-				<button type="button" onclick=" window.location.href = '/about-me';" class="btn btn-outline-dark px-4 py-2 mt-2 btn-style">Read More</button>
+				<button type="button" onclick=" window.location.href = '/about-me';"
+					class="btn btn-outline-dark px-4 py-2 mt-2 btn-style">Read More</button>
 			</div>
 		</div>
 	</div>
@@ -50,7 +52,7 @@
 <section id="home-blog" class="gray-section section-margin">
 	<h2 class="header-padding">Articles</h2>
 	<hr class="short-hr">
-	<div class="container-fluid">
+	<div class="container">
 		<div class="card-deck">
 			<% posts.forEach(post => { %>
 			<div class="card">
@@ -58,7 +60,8 @@
 						alt="Card image cap">
 				</a>
 				<div class="card-body">
-					<h5 class="card-title"><a href="/cards/<%= post.id %>" class="deck-title-link"><%= post.title %></a></h5>
+					<h5 class="card-title"><a href="/cards/<%= post.id %>" class="deck-title-link"><%= post.title %></a>
+					</h5>
 				</div>
 				<div class="card-footer">
 					<hr>
