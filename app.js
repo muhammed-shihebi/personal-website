@@ -146,11 +146,24 @@ app.get("/cards/:cardId", function (req, res) {
 		const rawRichTextField = entry.fields.content;
 		return richTextRender.documentToHtmlString(rawRichTextField);
 	}).then(renderedHtml => {
-		res.render("card", {
-			title: outerEntry.fields.title,
-			imageUrl: outerEntry.fields.titleImage.fields.file.url,
-			content: renderedHtml
-		})
+		const contentType = outerEntry.sys.contentType.sys.id
+		if(contentType === "project"){
+			var date = new Date(outerEntry.fields.projectCreationDate);
+			res.render("card", {
+				title: outerEntry.fields.title,
+				imageUrl: outerEntry.fields.titleImage.fields.file.url,
+				content: renderedHtml,
+				creationDate: date.toLocaleDateString("en-US", cardDateOptions)
+			}); 
+		}else{
+			res.render("card", {
+				title: outerEntry.fields.title,
+				imageUrl: outerEntry.fields.titleImage.fields.file.url,
+				content: renderedHtml, 
+				creationDate: ""
+			}); 
+		}
+
 	}).catch(error => console.log(error));
 });
 

@@ -16,3 +16,7 @@
 		});
 	}, false);
 })();
+
+$(document).ready(function () {
+	
+});
