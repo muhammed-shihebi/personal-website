@@ -224,7 +224,11 @@ a.deck-title-link:hover{
 		padding: 0;
 	}
 	.personal-image {
-		width: 14rem;
+		width: 20rem;
+	}
+	.about-computer-image{
+		margin-top: 2rem;
+		width: 14rem;	
 	}
 }
 
@@ -287,14 +291,14 @@ a.deck-title-link:hover{
 /* ========================== About Me =======================  */
 /* ===========================================================  */
 
-#about-me-intro{
-	padding: 0 20%;
+#about-me-intro .container{
+	padding: 0 5%;
 	text-align: left;
 }
 
 .about-computer-image{
 	margin-top: 4.2rem;
-	width: 100%;	
+	width: 27rem;	
 }
 
 .edu-container{
@@ -313,6 +317,14 @@ a.deck-title-link:hover{
 .edu-hr{
 	margin-bottom: 2rem;
 }
+
+@media screen and (max-width: 1000px) {
+	.about-computer-image {
+		margin-top: 0;
+		width: 20rem;		
+	}
+}
+
 
 /* ===========================================================  */
 /* ========================== contact me =====================  */
@@ -391,7 +403,7 @@ a.deck-title-link:hover{
 
 .card-image{
 	width: 100%;
-	height: 100%;
+	height: 40vw;
 	padding-bottom: 2rem;
 }
 
