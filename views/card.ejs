@@ -3,15 +3,18 @@
 <div class="container">
 	<div class="card border-0 shadow my-5 mx-auto">
 		<div class="card-body p-5">
-			<h1 ><%= title %></h1>
-			<span>
-				<% if(creationDate !== ""){%>
-				<p class="text-muted meta">Project publishing date: <%= creationDate %> </p>
-				<%  } %>
-			</span>
+			<h1><%= title %></h1>
+			<p class="text-muted meta">
+				Last updated <%=updateDate%>
+			</p>
 			<div class="text-center">
 				<img class="card-img-top card-image" src="<%= imageUrl %>" alt="">
 			</div>
+			<p class="text-muted meta">
+				<% if(creationDate !== ""){%>
+				Publishing date <%= creationDate %>
+				<%  } %>
+			</p>
 			<div class="my-card-body">
 
 				<p id="rich-text-body">
@@ -28,10 +31,10 @@
 				*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 				*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 				var disqus_config = function () {
-					this.page.url =" <%- pageUrl %> ";  
-					this.page.identifier = "<%- pageIdentifier %>" ;
+					this.page.url = " <%- pageUrl %> ";
+					this.page.identifier = "<%- pageIdentifier %>";
 				};
-		
+
 				(function () {
 					var d = document, s = d.createElement('script');
 					s.src = 'https://sehebi.disqus.com/embed.js';
@@ -39,7 +42,8 @@
 					(d.head || d.body).appendChild(s);
 				})();
 			</script>
-			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered
+					by
 					Disqus.</a></noscript>
 		</div>
 	</div>

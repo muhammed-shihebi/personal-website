@@ -17,6 +17,8 @@
 	}, false);
 })();
 
+
+// show the pages when the pages are loaded. 
 $(document).ready(function () {
 	document.getElementsByTagName("html")[0].style.visibility = "visible";
 });

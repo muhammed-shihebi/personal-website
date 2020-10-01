@@ -147,14 +147,15 @@ app.get("/cards/:cardId", function (req, res) {
 		return richTextRender.documentToHtmlString(rawRichTextField);
 	}).then(renderedHtml => {
 		const contentType = outerEntry.sys.contentType.sys.id
+		var updateDate = new Date(outerEntry.sys.updatedAt);
 		if(contentType === "project"){
-			console.log(renderedHtml);
-			var date = new Date(outerEntry.fields.projectCreationDate);
+			var creationDate = new Date(outerEntry.fields.projectCreationDate);
 			res.render("card", {
 				title: outerEntry.fields.title,
 				imageUrl: outerEntry.fields.titleImage.fields.file.url,
 				content: renderedHtml,
-				creationDate: date.toLocaleDateString("en-US", cardDateOptions), 
+				creationDate: creationDate.toLocaleDateString("en-US", cardDateOptions), 
+				updateDate: updateDate.toLocaleDateString("en-US", cardDateOptions), 
 				pageUrl: "https://www.sehebi.com/cards/" + req.params.cardId, 
 				pageIdentifier: req.params.cardId
 			}); 
@@ -164,11 +165,11 @@ app.get("/cards/:cardId", function (req, res) {
 				imageUrl: outerEntry.fields.titleImage.fields.file.url,
 				content: renderedHtml, 
 				creationDate: "", 
+				updateDate: updateDate.toLocaleDateString("en-US", cardDateOptions), 
 				pageUrl: "https://www.sehebi.com/cards/" + req.params.cardId, 
 				pageIdentifier: req.params.cardId
 			}); 
 		}
-
 	}).catch(error => console.log(error));
 });
 

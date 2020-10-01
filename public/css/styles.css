@@ -403,6 +403,7 @@ a.deck-title-link:hover{
 .cv-iframe{
 	width: 840px;
 	height: 840px;
+	max-width: 80%; 
 }
 
 /* ===========================================================  */
@@ -413,7 +414,7 @@ a.deck-title-link:hover{
 	width: 80%;
 	height:20%;
 	padding-bottom: 2rem;
-	padding-top: 2rem;
+	padding-top: 0.5rem;
 	object-fit: cover;
 }
 
