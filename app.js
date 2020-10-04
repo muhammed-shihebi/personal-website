@@ -192,5 +192,11 @@ app.post("/contact-me", function (req, res) {
 			res.redirect("contact-me");
 		}
 	});
+});
 
+
+// =========================================================== Tests 
+
+app.get("/tau", function (req, res) {
+	res.redirect("http://www.tau.edu.tr/")
 });
