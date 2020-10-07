@@ -1,10 +1,14 @@
 /* ===========================================================  */
+
 /* ====================== Home, Header, footer ===============  */
+
 /* ===========================================================  */
 
 /* =========================================================== Global */
 
-html { visibility:hidden; }
+html {
+	visibility: hidden;
+}
 
 .background-image {
 	background: url("/images/site-background.png") no-repeat center center fixed;
@@ -33,8 +37,8 @@ p {
 	background-color: #DFCFBA;
 }
 
-
 /* gray background for each gray section  */
+
 .gray-section {
 	background-color: #F5F5F5;
 }
@@ -46,8 +50,8 @@ p {
 	border: 2px solid;
 }
 
-
 /* top margin for each section */
+
 .section-margin {
 	margin-top: 4.5rem;
 }
@@ -68,11 +72,12 @@ p {
 }
 
 /* this will change the padding of the headers in the each section */
+
 .header-padding {
 	padding-top: 2.7rem;
 }
 
-.white-hr{
+.white-hr {
 	margin: 10px 0 15px;
 	border-style: solid none none;
 	border-width: 2px;
@@ -80,18 +85,18 @@ p {
 	width: 120px;
 }
 
-.serif{
+.serif {
 	font-family: 'Crimson Text', serif;
 }
 
-.bold-p{
+.bold-p {
 	margin-bottom: 0.5rem;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 0.9rem;
 	font-weight: bolder;
 }
 
-.bold-h5{
+.bold-h5 {
 	font-weight: bold;
 	margin-bottom: 0;
 }
@@ -104,18 +109,19 @@ p {
 	padding-bottom: 4rem;
 	text-align: left;
 }
+
 .card {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	border-radius: 0;
 	text-align: left;
 }
 
-a.deck-title-link{
+a.deck-title-link {
 	color: rgb(70, 70, 70);
 	font-size: 1.1rem;
 }
 
-a.deck-title-link:hover{
+a.deck-title-link:hover {
 	text-decoration: none;
 	color: #b8b894;
 }
@@ -125,29 +131,31 @@ a.deck-title-link:hover{
 }
 
 /* style hr in the card */
-.card-footer hr{
+
+.card-footer hr {
 	padding-bottom: 1rem;
 }
 
-.card-footer{
+.card-footer {
 	border-top: none;
 	background-color: transparent;
 	padding-top: 0;
 }
 
 /* delete the space under the title */
-.card-body{
+
+.card-body {
 	padding-bottom: 0;
 }
 
-.low-card-padding{
+.low-card-padding {
 	padding-bottom: 2rem;
 }
 
 /* =========================================================== Title Section */
 
-
 /* Way to make a fixed header image */
+
 .masthead {
 	/*vh: Relative to 1% of the height of the viewport**/
 	height: 40vh;
@@ -170,15 +178,16 @@ a.deck-title-link:hover{
 	font-weight: normal;
 }
 
-.masthead p{
+.masthead p {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 0.85rem;
 }
 
-.masthead a{
+.masthead a {
 	color: black;
 }
-.masthead a:hover{
+
+.masthead a:hover {
 	color: black;
 	text-decoration: none;
 }
@@ -220,7 +229,7 @@ a.deck-title-link:hover{
 	margin-top: 4rem;
 }
 
-@media screen and (max-width: 1000px) { 
+@media screen and (max-width: 1000px) {
 	.column-left {
 		text-align: center;
 		padding: 0;
@@ -228,9 +237,9 @@ a.deck-title-link:hover{
 	.personal-image {
 		width: 20rem;
 	}
-	.about-computer-image{
+	.about-computer-image {
 		margin-top: 2rem;
-		width: 14rem;	
+		width: 14rem;
 	}
 }
 
@@ -252,6 +261,7 @@ a.deck-title-link:hover{
 /* =========================================================== Blog */
 
 /* make the hr in the header align center */
+
 #home-blog hr {
 	margin: auto;
 }
@@ -262,54 +272,74 @@ a.deck-title-link:hover{
 
 .home-card-img-top {
 	width: 100%;
-    height: 30vh;
-    object-fit: cover;
+	height: 30vh;
+	object-fit: cover;
 }
 
 /* =========================================================== Footer */
 
-#footer p{
+#footer p {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 0;
 	font-size: 1rem;
 	color: #8f8f8f;
 }
 
-.footer-container{
+.footer-container {
 	background-color: white;
-    padding: 2% 0;
+	padding: 2% 0;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
 }
 
-.contact-icon{
+.contact-icon {
 	margin-left: 0.5rem;
 	font-size: 1.5rem;
 }
 
-.contact-icon:hover{
+.contact-icon:hover {
 	color: gray;
 }
 
 /* delete the blue color in the icons */
-#footer a{
+
+#footer a {
 	color: black;
 }
 
+.error-template {
+	padding: 40px 15px;
+	text-align: center;
+}
+
+.error-actions {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.error-actions .btn {
+	margin-right: 10px;
+}
 
 /* ===========================================================  */
+
 /* ========================== About Me =======================  */
+
 /* ===========================================================  */
 
-#about-me-intro .container{
+#about-me-intro .container {
 	padding: 0 5%;
 	text-align: left;
 }
 
-.about-computer-image{
+.about-computer-image {
 	margin-top: 4.2rem;
-	width: 27rem;	
+	width: 27rem;
 }
 
-.edu-container{
+.edu-container {
 	padding: 0 20%;
 	text-align: left;
 }
@@ -322,123 +352,135 @@ a.deck-title-link:hover{
 	padding-right: 0;
 }
 
-.edu-hr{
+.edu-hr {
 	margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 1000px) {
 	.about-computer-image {
 		margin-top: 0;
-		width: 20rem;		
+		width: 20rem;
 	}
 }
 
-
 /* ===========================================================  */
+
 /* ========================== contact me =====================  */
+
 /* ===========================================================  */
 
-#contact-me{
+#contact-me {
 	padding: 0 20% 3rem;
 	text-align: left;
 }
 
-.form-control{
+.form-control {
 	border-radius: 0;
 }
 
-#contact-me .btn-style{
+#contact-me .btn-style {
 	text-align: right;
 }
 
-#contact-me a{
+#contact-me a {
 	color: black;
 }
 
 #contact-me a:hover {
 	text-decoration: none;
-	color:gray;
+	color: gray;
 }
 
-#contact-me .form-control{
+#contact-me .form-control {
 	opacity: 0.7;
 }
 
-#contact-me .btn-style{
+#contact-me .btn-style {
 	border: 0;
 }
 
 /* ===========================================================  */
+
 /* ====================== cards           ====================  */
+
 /* ===========================================================  */
 
-#cards-section hr{
+#cards-section hr {
 	margin: 0 auto;
 	padding-bottom: 1rem;
 }
-#cards-section h3{
+
+#cards-section h3 {
 	margin-top: 3rem;
 }
 
-.cards-container{
+.cards-container {
 	margin-top: 6rem;
 }
 
 .cards-card-img-top {
 	width: 100%;
-    height: 50vh;
-    object-fit: cover;
+	height: 50vh;
+	object-fit: cover;
 }
-/* ===========================================================  */
-/* ========================== CV       =======================  */
+
 /* ===========================================================  */
 
-.cv-container{
+/* ========================== CV       =======================  */
+
+/* ===========================================================  */
+
+.cv-container {
 	margin: 2% 0 2%;
 }
 
-.download-cv-button{
+.download-cv-button {
 	margin-top: 2.2rem !important;
 }
-.cv-iframe{
+
+.cv-iframe {
 	width: 840px;
 	height: 840px;
-	max-width: 80%; 
+	max-width: 80%;
 }
 
 /* ===========================================================  */
+
 /* ========================== card     =======================  */
+
 /* ===========================================================  */
 
-.card-image{
+.card-image {
 	width: 100%;
-	height:70vh;
+	height: 70vh;
 	padding-bottom: 2rem;
 	padding-top: 0.5rem;
 	object-fit: cover;
 }
 
-.my-card-body p{
+.my-card-body p {
 	font-size: 1.1em;
 }
-.meta{
+
+.meta {
 	font-size: 1.1em;
 }
-.outer-container{
+
+.outer-container {
 	padding: 3rem;
 }
 
-@media screen and (max-width: 1000px) { 
-	.my-card-body p{
+@media screen and (max-width: 1000px) {
+	.my-card-body p {
 		font-size: 1em;
 	}
-	.meta{
+	.meta {
 		font-size: 1em;
 	}
-	.outer-container{
+	.outer-container {
 		padding: 1.5rem;
 	}
-	.card-image{
-		height:auto;
+	.card-image {
+		height: auto;
 	}
 }

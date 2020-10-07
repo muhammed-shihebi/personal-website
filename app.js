@@ -35,6 +35,7 @@ let transporter = nodemailer.createTransport({
 var projectDateOptions = {year: 'numeric', month: 'short'};
 var cardDateOptions = {year: 'numeric', month: 'short', day:'numeric'};
 
+
 // ===========================================================
 
 app.get("/", function (req, res) {
@@ -197,6 +198,10 @@ app.post("/contact-me", function (req, res) {
 
 // =========================================================== Tests 
 
-app.get("/tau", function (req, res) {
-	res.redirect("http://www.tau.edu.tr/")
+app.get("/s", function (req, res) {
+	res.redirect("https://www.google.com/");
 });
+
+app.use(function(req,res,next){
+	res.status(404).render("404")
+})
