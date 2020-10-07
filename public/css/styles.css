@@ -288,10 +288,6 @@ a.deck-title-link:hover {
 .footer-container {
 	background-color: white;
 	padding: 2% 0;
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
 }
 
 .contact-icon {
@@ -309,19 +305,7 @@ a.deck-title-link:hover {
 	color: black;
 }
 
-.error-template {
-	padding: 40px 15px;
-	text-align: center;
-}
 
-.error-actions {
-	margin-top: 15px;
-	margin-bottom: 15px;
-}
-
-.error-actions .btn {
-	margin-right: 10px;
-}
 
 /* ===========================================================  */
 
@@ -483,4 +467,21 @@ a.deck-title-link:hover {
 	.card-image {
 		height: auto;
 	}
+}
+
+
+/* =========================================================== Error page */
+
+.error-template {
+	padding: 40px 15px;
+	text-align: center;
+}
+
+.error-actions {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.error-actions .btn {
+	margin-right: 10px;
 }
